@@ -15,9 +15,7 @@ function ChatRow({ id }: Props) {
     const router = useRouter()
     const { data: session } = useSession()
     const [active, setActive] = useState(false)
-    const [messages] = useCollection(  
-        collection(db, 'users', session?.user?.email!, 'chats', id, 'messages'),
-       
+    const [messages] = useCollection(collection(db, 'users', session?.user?.email!,   'chats', id, 'messages'),
     ) 
 
     useEffect(() => {
@@ -26,8 +24,9 @@ function ChatRow({ id }: Props) {
     }, [pathname])
 
 
-    const removeChat = async( ) =>{
-        await deleteDoc(doc(db, session?.user?.email!, 'chats', id))
+    const removeChat = async( ) => {
+        console.log(db)
+        await deleteDoc(doc(db, 'users', session?.user?.email!,  'chats', id))
         router.replace("/")
     }
     return (
