@@ -29,9 +29,9 @@ function Sidebar() {
                 <p>Loading chats...</p>
               </div>
             ) }
-            {/* {chats?.docs.map(chat => (
+            {chats?.docs.map(chat => (
                   <ChatRow key={chat.id} id={chat.id} />
-                ))} */}
+                ))}
           </div>
         </div>
       </div>

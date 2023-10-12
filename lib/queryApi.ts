@@ -1,16 +1,16 @@
 import OpenAI from 'openai';
 
-const openai = new OpenAI();
+const openai = new OpenAI({
+  apiKey: 'my api key', // defaults to process.env["OPENAI_API_KEY"]
+});
 
 async function main() {
-  const stream = await openai.chat.completions.create({
-    model: 'gpt-3.5-turbo',
+  const chatCompletion = await openai.chat.completions.create({
     messages: [{ role: 'user', content: 'Say this is a test' }],
-    stream: true,
+    model: 'gpt-3.5-turbo',
   });
-  for await (const part of stream) {
-    process.stdout.write(part.choices[0]?.delta?.content || '');
-  }
+
+  console.log(chatCompletion.choices);
 }
 
 main();
