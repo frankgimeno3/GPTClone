@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 
 // Configura tus credenciales de OpenAI
-const apiKey = "TU_API_KEY"; // Reemplaza "TU_API_KEY" con tu clave de API real de OpenAI
+const apiKey = process.env.OPENAI_API_KEY
 const openaiBaseUrl = "https://api.openai.com/v1";
 
 type Option = {

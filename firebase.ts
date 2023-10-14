@@ -17,8 +17,13 @@ const firebaseConfig = {
   appId: "1:941152934740:web:3bdf474c69e3e243fc06c1",
  };
 
-// Initialize Firebase
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+//almacena en app el listado de parámetros que nos autentican a nuestra bbdd al conectar con firebase
+//el operador ternario comprueba si ya está configurada, y si está vacía añade el código arriba
+
 const db = getFirestore (app)
+//db ejecuta una funcion de firestore que almacena un objeto en la variable db
+// para operar, deberemos usar este objeto siempre
+//esto es útil pk si tenemos +1 db podemos operar con diferentes nombres en diferentes db
 
 export {db}

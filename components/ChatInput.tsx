@@ -24,7 +24,6 @@ function ChatInput({ chatId }: Props) {
     if (!prompt) { return }
  
     const input = prompt.trim()
-    setPrompt("")
 
     const message: Message = {
       text: input,
@@ -35,6 +34,7 @@ function ChatInput({ chatId }: Props) {
         avatar: session?.user?.image! || `https://ui-avatars.com/api/?name=${session?.user?.name}`
       }
     }
+    setPrompt("")
 
     await addDoc(
       collection(db, 'users', session?.user?.email!, 'chats', chatId, 'messages'),

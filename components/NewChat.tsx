@@ -11,6 +11,8 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 export default function NewChat( ) {
 const router = useRouter()
 const { data: session} = useSession() //data is the users information
+
+
 const createNewChat = async () => {
   const doc = await addDoc(
     collection(db, 'users', session?.user?.email!,   'chats'), {
